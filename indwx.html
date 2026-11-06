@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    body { transition: opacity ease-in 0.2s; }
+    body[unresolved] { opacity: 0; display: block; overflow: hidden; position: relative; }
+  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      background-color: yellow;
+      transition: 2s;
+    }
+    .bgcolor--gray {
+      background-color: GRAY;
+    }
+    .bgcolor--red {
+      background-color: rgb(31, 105, 255);
+    }
+    .bgcolor--yellow {
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body class="bgcolor--yellow">
+  " 자바스크립트연습 "
+  <button class="bgcolor">배경색상 변경 그레이</button>
+  <button class="btn--red">배경색상 변경 블루</button>
+  <button class="btn--reset">배경색상 초기화</button>
+  <button class="btn--yellow">배경색상 노랑색</button>
+
+  <script>
+    const body = document.body;
+
+   
+    function changeBg(className) {
+      body.classList.remove('bgcolor--gray', 'bgcolor--red', 'bgcolor--yellow');
+      if (className) {
+        body.classList.add(className);
+      }
+    }
+
+    document.querySelector('.bgcolor').addEventListener('click', function() {
+      changeBg('bgcolor--gray');
+    });
+
+    
+    document.querySelector('.btn--red').addEventListener('click', function() {
+      changeBg('bgcolor--red');
+    });
+
+    document.querySelector('.btn--reset').addEventListener('click', function() {
+      changeBg('');
+    });
+
+    
+    document.querySelector('.btn--yellow').addEventListener('click', function() {
+      changeBg('bgcolor--yellow');
+    });
+  </script>
+</body>
+</html>
